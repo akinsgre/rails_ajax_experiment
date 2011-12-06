@@ -1,0 +1,16 @@
+/.bundle
+/db/*.sqlite3
+/log/*.log
+/tmp
+*.log
+/tmp/
+tmp/
+doc/
+*.swp
+*~
+.project
+.DS_Store
+environments/development.rb
+config/database.yml
+
+
