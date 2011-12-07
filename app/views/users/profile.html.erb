@@ -36,7 +36,7 @@
 </style>
 <script language="JavaScript">
 $().ready(function() {
-    $('#popup').dialog({ autoOpen : false }) ;
+    $('#popup').dialog({ autoOpen : false, width: '400px', title: 'Save Contact Info' }) ;
     $('#target').click( 
 	function() { 
 	    $('#popup').dialog('open');
@@ -44,22 +44,21 @@ $().ready(function() {
 	}
     );
 });
-function addContact() {
-$('#popup').dialog('close')
-$('#contactList').append("<li>Test</li>");
-}
+
 </script>
 
 <div id="popup" >
 <%= form_for(:contact, :url => contacts_path, :remote => true) do |f|%>
+<%= f.label :name %>
 <%= f.text_field :name %>
+<%= f.label :resource %>
+<%= f.text_field :resource %>
 <%= submit_tag('Save', :class => "button") %>
 <% end %>
-
 </div>
 <h1>Users Profile</h1>
 <% if @contacts.empty? %>
-<p> "You don't have any contacts"</p>
+<p>You don't have any contacts</p>
 <% end %>
 <p id="target" class="button" style="width:100px" >Add a contact</p>
 <div>

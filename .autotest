@@ -1,2 +1,3 @@
-require 'autotest/gnomenotify'
-require 'autotest/inotify'
+require 'autotest/fsevent'
+require 'autotest/growl'
+#require 'autotest/inotify'
