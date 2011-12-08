@@ -15,11 +15,14 @@
 <% end %>
 </div>
 <div id="addContactPopup" >
-<%= form_for [@groups[0], Contact.new], :remote => true do |f| %>
-<%= f.label :name %>
-<%= f.select :name, options_for_select([['SMS', 1],['Phone', 2]]) %>
-<%= submit_tag('Save', :class => "button") %>
-<% end %>
+<form id="addContactForm" >
+<input type="text" id="group_id" />
+<select>
+  <option id="SMS">SMS</option>
+  <option id="Phone">Phone</option>
+</select>
+<input type="submit" />
+</form>
 </div>
 <h1 id="header">Users Profile</h1>
 <% if @contacts.empty? %>
@@ -35,7 +38,9 @@
 <% end %>
 <p id="groupOpenBtn" class="button" style="width:100px" >Add a Group</p>
 <ul id="groupList">
-<%= render @groups %>
+<% @groups.each do |group| %>
+<%= render group %>
+<% end %>
 </ul>
 </div>
 
