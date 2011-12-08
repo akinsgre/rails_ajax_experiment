@@ -1,53 +1,4 @@
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/black-tie/jquery-ui.css" >
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" language="JavaScript" ></script>
-
-<style>
-.button {
-   border-top: 1px solid #96d1f8;
-   background: #65a9d7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
-   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-   background: -o-linear-gradient(top, #3e779d, #65a9d7);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 14px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-.button:hover {
-   border-top-color: #28597a;
-   background: #28597a;
-   color: #ccc;
-   }
-.button:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }
-</style>
-<script language="JavaScript">
-$().ready(function() {
-    $('#popup').dialog({ autoOpen : false, width: '400px', title: 'Save Contact Info' }) ;
-    $('#target').click( 
-	function() { 
-	    $('#popup').dialog('open');
-
-	}
-    );
-});
-
-</script>
-
-<div id="popup" >
+<div id="newContactPopup" >
 <%= form_for(:contact, :url => contacts_path, :remote => true) do |f|%>
 <%= f.label :name %>
 <%= f.text_field :name %>
@@ -56,14 +7,35 @@ $().ready(function() {
 <%= submit_tag('Save', :class => "button") %>
 <% end %>
 </div>
-<h1>Users Profile</h1>
+<div id="newGroupPopup" >
+<%= form_for(:group, :url => groups_path, :remote => true) do |f|%>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= submit_tag('Save', :class => "button") %>
+<% end %>
+</div>
+<div id="addContactPopup" >
+<%= form_for [@groups[0], Contact.new], :remote => true do |f| %>
+<%= f.label :name %>
+<%= f.select :name, options_for_select([['SMS', 1],['Phone', 2]]) %>
+<%= submit_tag('Save', :class => "button") %>
+<% end %>
+</div>
+<h1 id="header">Users Profile</h1>
 <% if @contacts.empty? %>
 <p>You don't have any contacts</p>
 <% end %>
-<p id="target" class="button" style="width:100px" >Add a contact</p>
+<p id="contactOpenBtn" class="button" style="width:100px" >Add a Contact</p>
 <div>
 <ul id="contactList">
 <%= render @contacts %>
+</ul>
+<% if @groups.empty? %>
+<p>You don't have any groups</p>
+<% end %>
+<p id="groupOpenBtn" class="button" style="width:100px" >Add a Group</p>
+<ul id="groupList">
+<%= render @groups %>
 </ul>
 </div>
 

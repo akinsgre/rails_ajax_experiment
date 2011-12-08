@@ -1,2 +1,3 @@
-$('#contactList').append("<%= escape_javascript(render(@contact)) %>")
-$('#popup').dialog('close');
+$('#header').after('<div id="flash_notice"><%= escape_javascript(flash.discard(:notice)) %></div>');
+$('#contactList').append("<%= escape_javascript(render(@contact)) %>");
+$('#newContactPopup').dialog('close');
