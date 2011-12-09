@@ -22,8 +22,9 @@ $().ready(function() {
 	var notice = $('#flash_notice') ; 
 	notice.fadeOut('slow');
 	var group_id = $(this).attr('id').replace(/addContactBtn/g, "");
-
+	
 	$('#addContactForm input[id=group_id]').val(group_id);
+	$('#addContactForm').
 	$('#addContactPopup').dialog('open');
     });
     

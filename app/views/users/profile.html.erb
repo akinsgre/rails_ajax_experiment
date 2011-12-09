@@ -15,14 +15,15 @@
 <% end %>
 </div>
 <div id="addContactPopup" >
-<form id="addContactForm" >
+??
+<%= form_for [@groups[0], Contact.new], :remote => true do %>
 <input type="text" id="group_id" />
 <select>
   <option id="SMS">SMS</option>
   <option id="Phone">Phone</option>
 </select>
 <input type="submit" />
-</form>
+<% end %>
 </div>
 <h1 id="header">Users Profile</h1>
 <% if @contacts.empty? %>
