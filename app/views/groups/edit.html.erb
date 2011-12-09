@@ -1,0 +1,7 @@
+<%= form_for @group, :remote => true do |f| %>
+<%= select_tag "contact", 
+    options_for_select( 
+         Contact.find(:all).collect{|c|[ c.name, c.id]}
+    ) %>
+<%= f.submit "Save"%>
+<% end %>

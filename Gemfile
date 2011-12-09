@@ -18,9 +18,9 @@ group :development do
 end
 
 group :test do
-  #gem 'autotest-inotify', '0.0.6'
-  gem 'autotest-fsevent'
-  gem 'autotest-growl'
+  gem 'autotest-inotify', '0.0.6'
+  #gem 'autotest-fsevent'
+  #gem 'autotest-growl'
   gem 'rspec-rails', '2.7.0'
   gem 'capybara', '1.1.2'
   gem 'ZenTest', '4.6.2'
