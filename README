@@ -1,1 +1,10 @@
 Just a test app to play with Rails 3.1, Unobtrusive Javascript and JQuery
+
+Uses postgres database..
+
+Start on Mac with 
+
+% su - postgres
+% pg_ctl start -D/opt/local/var/db/postgresql90/defaultdb/
+
+rails s Start at localhost:3000/users/profile
