@@ -17,21 +17,21 @@ ActiveRecord::Schema.define(:version => 20111207144333) do
     t.text     "name"
     t.integer  "contact_type_id"
     t.text     "resource"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "group_contacts", :force => true do |t|
     t.integer  "group_id"
     t.integer  "contact_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "groups", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

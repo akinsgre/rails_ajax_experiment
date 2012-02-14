@@ -5,5 +5,7 @@ Myapp::Application.routes.draw do
   end
 
   get "users/profile"
+  root :to => "users#profile"
+
 
 end
