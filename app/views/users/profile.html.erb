@@ -17,15 +17,24 @@
 <div id="addContactPopup" >
 
 </div>
+<script>
+  $(function() {
+  $( "#dialog1" ).dialog({width: 460, height: 250, position: [10,200]});
+    $( "#dialog2" ).dialog({width: 460, height: 250, position: [500,100]});
+  });
+</script>
 <h1 id="header">Users Profile</h1>
+<div id="dialog1">
 <% if @contacts.empty? %>
 <p>You don't have any contacts</p>
 <% end %>
 <p id="contactOpenBtn" class="button" style="width:100px" >Add a Contact</p>
-<div>
+
 <ul id="contactList">
 <%= render @contacts %>
 </ul>
+</div>
+<div id="dialog2">
 <% if @groups.empty? %>
 <p>You don't have any groups</p>
 <% end %>
@@ -35,6 +44,7 @@
 <%= render group %>
 <% end %>
 </ul>
+</div>
 </div>
 
 
