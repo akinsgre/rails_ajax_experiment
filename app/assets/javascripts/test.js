@@ -3,9 +3,7 @@ $().ready(function() {
     $('#newContactPopup').dialog({ autoOpen : false, width: '400px', title: 'Add Contact Info' }) ;
     $('#contactOpenBtn').click( 
 	function() { 
-
 	    $('#flash_notice').fadeOut('slow');
-
 	    $('#newContactPopup').dialog('open');
 	    
 	}
@@ -14,9 +12,7 @@ $().ready(function() {
     $('#groupOpenBtn').click( 
 	function() { 
 	    $('#flash_notice').fadeOut('slow');
-
 	    $('#newGroupPopup').dialog('open');
-	    
 	}
     );
 

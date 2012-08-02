@@ -4,14 +4,15 @@
 <%= f.text_field :name %>
 <%= f.label :resource %>
 <%= f.text_field :resource %>
-<%= submit_tag('Save', :class => "button") %>
+<%= f.button('Save', :class => "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-button-text") %>
 <% end %>
 </div>
 <div id="newGroupPopup" >
 <%= form_for(:group, :url => groups_path, :remote => true) do |f|%>
 <%= f.label :name %>
 <%= f.text_field :name %>
-<%= submit_tag('Save', :class => "button") %>
+<%= f.button('Save', :class => "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-button-text") %>
+
 <% end %>
 </div>
 <div id="addContactPopup" >
@@ -28,7 +29,11 @@
 <% if @contacts.empty? %>
 <p>You don't have any contacts</p>
 <% end %>
-<p id="contactOpenBtn" class="button" style="width:100px" >Add a Contact</p>
+
+<a href="#" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button">
+<span class="ui-button-text" id="contactOpenBtn" style="width:150px" >Add a Contact</span>
+</a>
+<div>
 
 <ul id="contactList">
 <%= render @contacts %>
@@ -38,7 +43,10 @@
 <% if @groups.empty? %>
 <p>You don't have any groups</p>
 <% end %>
-<p id="groupOpenBtn" class="button" style="width:100px" >Add a Group</p>
+<a href="#" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button">
+<span class="ui-button-text" id="groupOpenBtn" style="width:150px" >Add a Contact</span>
+</a>
+
 <ul id="groupList">
 <% @groups.each do |group| %>
 <%= render group %>

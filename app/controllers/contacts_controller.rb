@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
 
     @contact = Contact.create!(params[:contact])
     flash[:notice] = "Contact was created successfully"
+    UserMailer.registration_confirmation( @contact).deliver
     respond_to do |format|
       format.html { redirect_to contact_path(@contact)}
       format.js
